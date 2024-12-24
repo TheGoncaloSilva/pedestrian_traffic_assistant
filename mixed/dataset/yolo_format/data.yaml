@@ -1,6 +1,6 @@
-train: ./train/images
-val: ./valid/images
-test: ./test/images
+train: {PATH}/train/images
+val: {PATH}/valid/images
+test: {PATH}/test/images
 
 nc: 3
 names: ['crosswalk', 'greenlight', 'redlight']
