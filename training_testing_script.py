@@ -94,9 +94,9 @@ def print_execution_time(start_time: float, end_time: float, designation: str) -
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--log", help="Log threshold (default=DEBUG)", type=str, default='DEBUG')
-    parser.add_argument("--logFile", help="Log file (default=logs.log)", type=str, default='logs.log')
+    parser.add_argument("--logFile", help="Log file (default=logs.log)", type=str, default='logs.txt')
     parser.add_argument("--dataset", help="Dataset to use (crossroads, mixed or traffic_lights)", type=str, default='mixed')
-    parser.add_argument("--model", help="Path to the config file (default=yolov8n)", type=str, default='yolo11n')
+    parser.add_argument("--model", help="Path to the config file (default=yolo11n)", type=str, default='yolo11n')
     parser.add_argument("--epochs", help="Number of epochs (default=300)", type=int, default=300)
     parser.add_argument("--batch", help="Batch size (default=16)", type=int, default=16)
     parser.add_argument("--patience", help="Early stopping patience (default=100)", type=int, default=100)
@@ -191,21 +191,9 @@ if __name__ == '__main__':
         batch=args.batch, 
         imgsz=(image_info[0], image_info[1], image_info[2]), 
         project=results_dir,
-        split='val'
-        )
-    print_execution_time(startTime, time.time(), "Validation")
-
-    # Model testing
-    logging.info("Starting model testing")
-    startTime = time.time()
-    model.test(
-        data=dataset, 
-        batch=args.batch, 
-        imgsz=(image_info[0], image_info[1], image_info[2]), 
-        project=results_dir,
         split='test'
         )
-    print_execution_time(startTime, time.time(), "Testing")
+    print_execution_time(startTime, time.time(), "Validation")
 
 
     
