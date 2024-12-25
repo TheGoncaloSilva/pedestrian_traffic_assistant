@@ -1,6 +1,6 @@
-train: {PATH}/train/images
-val: {PATH}/valid/images
-test: {PATH}/test/images
+train: /home/goncalolsilva@av.it.pt/work/pedestrian_traffic_assistant/mixed/dataset/yolo_format/train/images
+val: /home/goncalolsilva@av.it.pt/work/pedestrian_traffic_assistant/mixed/dataset/yolo_format/valid/images
+test: /home/goncalolsilva@av.it.pt/work/pedestrian_traffic_assistant/mixed/dataset/yolo_format/test/images
 
 nc: 3
 names: ['crosswalk', 'greenlight', 'redlight']
