@@ -73,6 +73,7 @@ def print_settings() -> None:
     logging.info(f" - Image Channels: {image_info[2]}")
     logging.info(f" - Device: {device}")
     logging.info(f" - Patience: {args.patience}")
+    logging.info(f" - Batch size: {args.batch}")
 
 def print_execution_time(start_time: float, end_time: float, designation: str) -> None:
     """

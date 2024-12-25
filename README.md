@@ -55,7 +55,7 @@ Mixed dataset obtained [here](https://universe.roboflow.com/chanyoung/pedestrian
 To train the model in a terminal only linux environment, you can use the `screen` command to create a new window, and run the training script in the background. This way, you can close the terminal, and the training will continue to run. For that, the following commands can be used:
 
 ```bash
-screen -s {window_name}
+screen -S {window_name}
 screen -ad # Run detached
 screen -ls # List windows
 screen -r {window_id}
