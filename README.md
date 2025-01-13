@@ -50,6 +50,8 @@ Mixed dataset obtained [here](https://universe.roboflow.com/chanyoung/pedestrian
 | Test  | 197       | 10  |
 | Total | 13767     | 100 |
 
+**Note:** Guarantee that `test` images are unique and not repeated
+
 # Training tips
 
 To train the model in a terminal only linux environment, you can use the `screen` command to create a new window, and run the training script in the background. This way, you can close the terminal, and the training will continue to run. For that, the following commands can be used:
