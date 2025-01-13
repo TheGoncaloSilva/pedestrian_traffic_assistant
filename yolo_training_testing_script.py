@@ -152,12 +152,12 @@ if __name__ == '__main__':
         logging.error("Invalid dataset. Please use one of the following: crossroads, mixed, traffic_lights")
         sys.exit(1)
     dataset: str = os.path.join(args.dataset, "dataset", "yolo_format", "data.yaml")
-    train_images: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "train", "images")
-    train_labels: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "train", "labels")
-    val_images: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "valid", "images")
-    val_labels: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "valid", "labels")
-    test_images: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "test", "images")
-    test_labels: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "test", "labels")
+    train_images: str = os.path.join(args.dataset, "dataset", "yolo_format", "train", "images")
+    train_labels: str = os.path.join(args.dataset, "dataset", "yolo_format", "train", "labels")
+    val_images: str = os.path.join(args.dataset, "dataset", "yolo_format", "valid", "images")
+    val_labels: str = os.path.join(args.dataset, "dataset", "yolo_format", "valid", "labels")
+    test_images: str = os.path.join(args.dataset, "dataset", "yolo_format", "test", "images")
+    test_labels: str = os.path.join(args.dataset, "dataset", "yolo_format", "test", "labels")
 
     results_dir: str = os.path.join(
         args.dataset, 
