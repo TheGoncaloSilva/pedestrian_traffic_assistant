@@ -1,5 +1,6 @@
 import sys
 from ultralytics import YOLO
+from ultralytics import RTDETR
 import matplotlib.pyplot as plt
 import argparse
 import logging
@@ -127,6 +128,11 @@ if __name__ == '__main__':
     fileLogger.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
     logging.getLogger().addHandler(fileLogger)
 
+    # Check the model
+    dataType: str = "yolo"
+    if args.model in ["rtdetr-l", "rtdetr-x"]:
+        dataType = "coco"
+
     # Set the device to the appropriate one
     deviceType: str = ""
     if torch.cuda.is_available():
@@ -145,13 +151,13 @@ if __name__ == '__main__':
     if args.dataset not in ["crossroads", "mixed", "traffic_lights"]:
         logging.error("Invalid dataset. Please use one of the following: crossroads, mixed, traffic_lights")
         sys.exit(1)
-    dataset: str = os.path.join(args.dataset, "dataset", "yolo_format", "data.yaml")
-    train_images: str = os.path.join(args.dataset, "dataset", "yolo_format", "train", "images")
-    train_labels: str = os.path.join(args.dataset, "dataset", "yolo_format", "train", "labels")
-    val_images: str = os.path.join(args.dataset, "dataset", "yolo_format", "valid", "images")
-    val_labels: str = os.path.join(args.dataset, "dataset", "yolo_format", "valid", "labels")
-    test_images: str = os.path.join(args.dataset, "dataset", "yolo_format", "test", "images")
-    test_labels: str = os.path.join(args.dataset, "dataset", "yolo_format", "test", "labels")
+    dataset: str = os.path.join(args.dataset, "dataset", dataType + "_format", "data.yaml")
+    train_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "train", "images")
+    train_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "train", "labels")
+    val_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "valid", "images")
+    val_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "valid", "labels")
+    test_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "test", "images")
+    test_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "test", "labels")
     results_dir: str = os.path.join(
         args.dataset, 
         "results", 
@@ -172,10 +178,19 @@ if __name__ == '__main__':
         modelName += '.pt'
 
     # Loading a pretrained model
-    model = YOLO(modelName)
+    if dataType == "yolo":
+        model = YOLO(modelName)
+    elif dataType == "coco":
+        model = RTDETR(modelName)
+    else:
+        logging.error("Invalid model type")
+        sys.exit(1)
 
     # free up GPU memory
     torch.cuda.empty_cache()
+
+    # Display model information (optional)
+    model.info()
 
     # print all configuration settings
     print_settings()

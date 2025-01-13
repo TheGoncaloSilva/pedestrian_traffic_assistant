@@ -1,0 +1,13 @@
+train: /home/goncalolsilva@av.it.pt/work/pedestrian_traffic_assistant/mixed/dataset/coco_format/train/images
+val: /home/goncalolsilva@av.it.pt/work/pedestrian_traffic_assistant/mixed/dataset/coco_format/valid/images
+test: /home/goncalolsilva@av.it.pt/work/pedestrian_traffic_assistant/mixed/dataset/coco_format/test/images
+
+nc: 3
+names: ['crosswalk', 'greenlight', 'redlight']
+
+roboflow:
+  workspace: chanyoung
+  project: pedestrian-light-crosswalk
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/chanyoung/pedestrian-light-crosswalk/dataset/2
