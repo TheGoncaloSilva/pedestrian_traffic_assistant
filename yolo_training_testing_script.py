@@ -151,21 +151,13 @@ if __name__ == '__main__':
     if args.dataset not in ["crossroads", "mixed", "traffic_lights"]:
         logging.error("Invalid dataset. Please use one of the following: crossroads, mixed, traffic_lights")
         sys.exit(1)
-    dataset: str = os.path.join(args.dataset, "dataset", dataType + "_format", "data.yaml")
-    if dataType == "yolo":
-        train_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "train", "images")
-        train_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "train", "labels")
-        val_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "valid", "images")
-        val_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "valid", "labels")
-        test_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "test", "images")
-        test_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "test", "labels")
-    elif dataType == "coco":
-        train_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "train")
-        train_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "train")
-        val_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "valid")
-        val_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "valid")
-        test_images: str = os.path.join(args.dataset, "dataset", dataType + "_format", "test")
-        test_labels: str = os.path.join(args.dataset, "dataset", dataType + "_format", "test")
+    dataset: str = os.path.join(args.dataset, "dataset", "yolo_format", "data.yaml")
+    train_images: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "train", "images")
+    train_labels: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "train", "labels")
+    val_images: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "valid", "images")
+    val_labels: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "valid", "labels")
+    test_images: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "test", "images")
+    test_labels: str = os.path.join(args.dataset, "dataset", dataType + "yolo_format", "test", "labels")
 
     results_dir: str = os.path.join(
         args.dataset, 
