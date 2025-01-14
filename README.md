@@ -75,6 +75,16 @@ CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtd
 CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r output/rtdetrv2_r18vd_120e_coco/best.pth --test-only &> log_test.txt 2>&1
 ```
 
+* Extract to onnx format (first install `onnx`, `onnxruntime` and `onnxruntime-gpu` packages):
+```sh
+python tools/export_onnx.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r output/rtdetrv2_r18vd_120e_coco/best.pth --check
+```
+
+* Inference
+```sh
+python tools/inference.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r output/rtdetrv2_r18vd_120e_coco/best.pth --img-root data/coco/val2017 --save-dir output/rtdetrv2_r18vd_120e_coco/val2017
+``` 
+
 # Some analysis
 
 ```
