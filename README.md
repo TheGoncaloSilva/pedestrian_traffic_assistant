@@ -63,11 +63,17 @@ screen -ls # List windows
 screen -r {window_id}
 ```
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --master_port=9909 --nproc_per_node=4 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml --use-amp --seed=0 &> log.txt 2>&1 &
+# Usage of transformer model
 
-CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml --use-amp --seed=0 &> log.txt 2>&1
+* Train
+```sh
+CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml --seed=0 &> log.txt 2>&1
+```
 
-CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_300e_coco.yml --use-amp --seed=0 &> log.txt 2>&1
+* Test
+```sh
+CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r output/rtdetrv2_r18vd_120e_coco/best.pth --test-only &> log_test.txt 2>&1
+```
 
 # Some analysis
 
