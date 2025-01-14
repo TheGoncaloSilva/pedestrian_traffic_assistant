@@ -68,3 +68,5 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --master_port=9909 --nproc_per_node=4 tool
 CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml --use-amp --seed=0 &> log.txt 2>&1
 
 CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_300e_coco.yml --use-amp --seed=0 &> log.txt 2>&1
+
+# Some analysis
