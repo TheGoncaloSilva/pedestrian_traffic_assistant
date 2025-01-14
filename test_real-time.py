@@ -15,7 +15,7 @@ if not os.path.exists(figsFolder):
     os.makedirs(figsFolder)
 
 # Model
-completeName = "yolo11n_300_100_16_AdamW_0.0001_0.0001_0"
+completeName = "rtdetr-l_300_100_16_auto_0.01_0.0005_0"
 train_path = os.path.join(rootFolder, completeName, "train")
 
 if not os.path.exists(train_path):
@@ -23,7 +23,9 @@ if not os.path.exists(train_path):
 
 # Load the model
 best_model_path = os.path.join(train_path, "weights", "best.pt")
-model = YOLO(best_model_path)
+
+#model = YOLO(best_model_path)
+model = RTDETR(best_model_path)
 
 ###########################
 ## Test prediction times ##
@@ -153,6 +155,7 @@ def print_stats(label, data):
     print("-" * 40)
 
 # Print stats
+print("\nPrediction Stats for " + completeName + ":")
 print_stats("Inference Time ", inference_times_all)
 print_stats("Total Time for Multiple Objects", total_times_all)
 

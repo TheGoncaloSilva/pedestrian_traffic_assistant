@@ -70,3 +70,112 @@ CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtd
 CUDA_VISIBLE_DEVICES=0 torchrun --master_port=9909 tools/train.py -c configs/rtdetrv2/rtdetrv2_r18vd_300e_coco.yml --use-amp --seed=0 &> log.txt 2>&1
 
 # Some analysis
+
+```
+Prediction Stats for yolo11n_300_100_16_AdamW_0.0001_0.0001_0:
+Inference Time :
+  Mean: 40.35 ms
+  95% Confidence Interval: ±1.69 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 41.42 ms
+  95% Confidence Interval: ±1.69 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for yolo11l_300_100_16_AdamW_0.0001_0.0001_0:
+Inference Time :
+  Mean: 254.80 ms
+  95% Confidence Interval: ±7.67 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 257.11 ms
+  95% Confidence Interval: ±8.35 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for yolo11n_300_5_16:
+Inference Time :
+  Mean: 38.68 ms
+  95% Confidence Interval: ±1.21 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 40.40 ms
+  95% Confidence Interval: ±1.15 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for yolo11n_300_100_16:
+Inference Time :
+  Mean: 38.18 ms
+  95% Confidence Interval: ±1.56 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 39.39 ms
+  95% Confidence Interval: ±1.61 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for yolo11n_300_100_16_AdamW_1e-05_0.0001_0:
+Inference Time :
+  Mean: 37.96 ms
+  95% Confidence Interval: ±0.79 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 39.28 ms
+  95% Confidence Interval: ±0.85 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for yolo11s_300_100_16:
+Inference Time :
+  Mean: 79.73 ms
+  95% Confidence Interval: ±2.68 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 81.17 ms
+  95% Confidence Interval: ±2.89 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for yolov8n_300_100_16:
+Inference Time :
+  Mean: 39.12 ms
+  95% Confidence Interval: ±2.69 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 40.10 ms
+  95% Confidence Interval: ±2.69 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for rtdetr-l_300_100_16_AdamW_0.0001_0.0001_0:
+Inference Time :
+  Mean: 331.21 ms
+  95% Confidence Interval: ±9.10 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 334.40 ms
+  95% Confidence Interval: ±8.94 ms
+----------------------------------------
+```
+
+```
+Prediction Stats for rtdetr-l_300_100_16_auto_0.01_0.0005_0:
+Inference Time :
+  Mean: 297.18 ms
+  95% Confidence Interval: ±2.82 ms
+----------------------------------------
+Total Time for Multiple Objects:
+  Mean: 298.37 ms
+  95% Confidence Interval: ±3.00 ms
+----------------------------------------
+```
+
