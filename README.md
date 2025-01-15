@@ -48,7 +48,7 @@ Mixed dataset obtained [here](https://universe.roboflow.com/chanyoung/pedestrian
 | Train | 1374      | 70  |
 | Valid | 389       | 20  |
 | Test  | 197       | 10  |
-| Total | 13767     | 100 |
+| Total | 1960      | 100 |
 
 **Note:** Guarantee that `test` images are unique and not repeated
 
